@@ -4,7 +4,12 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "install": "wget https://github.com/nicolasff/webdis/archive/0.1.3.tar.gz && tar -xvzf 0.1.3.tar.gz && mv webdis-0.1.3 webdis && cd webdis && make clean all && cd - && rm 0.1.3.tar.gz"
+    "install": "wget https://github.com/nicolasff/webdis/archive/0.1.3.tar.gz && tar -xvzf 0.1.3.tar.gz && mv webdis-0.1.3 webdis && cd webdis && make clean all && cd - && rm 0.1.3.tar.gz",
+    "commit": "git-cz",
+    "test": "npm run lint && mocha",
+    "lint": "standard",
+    "coverage": "istanbul cover _mocha",
+    "semantic-release": "semantic-release pre && npm publish && semantic-release post"
   },
   "repository": {
     "type": "git",
@@ -16,5 +21,15 @@
   "bugs": {
     "url": "https://github.com/violinist-dev/webdis-wrapper/issues"
   },
-  "homepage": "https://github.com/violinist-dev/webdis-wrapper#readme"
+  "homepage": "https://github.com/violinist-dev/webdis-wrapper#readme",
+  "devDependencies": {
+    "commitizen": "^2.9.6",
+    "coveralls": "^3.0.0",
+    "cz-conventional-changelog": "^2.1.0",
+    "istanbul": "^0.4.5",
+    "mocha": "^4.0.1",
+    "semantic-release": "^8.2.0",
+    "should": "^13.1.3",
+    "standard": "^10.0.3"
+  }
 }
