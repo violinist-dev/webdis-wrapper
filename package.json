@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "install": "wget https://github.com/nicolasff/webdis/archive/0.1.3.tar.gz && tar -xvzf 0.1.3.tar.gz && mv webdis-0.1.3 webdis && cd webdis && make clean all && cd - && rm 0.1.3.tar.gz",
+    "install": "wget https://github.com/nicolasff/webdis/archive/0.1.3.tar.gz && tar -xvzf 0.1.3.tar.gz && mv webdis-0.1.3 webdis && pushd webdis && make clean all && popd  && rm 0.1.3.tar.gz",
     "commit": "git-cz",
     "test": "npm run lint && mocha",
     "lint": "standard",
