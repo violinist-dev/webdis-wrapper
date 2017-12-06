@@ -11,10 +11,16 @@ let stream = fs.createWriteStream(fileName)
 
 const options = {cwd: path.join__dirname}
 
+const logOutput = (stdout, stderr) => {
+  console.log('STDOUT:', stdout)
+  console.log('STDERR:', stderr)
+}
+
 const runMake = () => {
   console.log('Running make')
   let opts = {cwd: path.join(__dirname, 'webdis')}
-  cp.execFile('make', ['clean', 'all'], opts, (err) => {
+  cp.execFile('make', ['clean', 'all'], opts, (err, stdout, stderr) => {
+    logOutput(stdout, stderr)
     if (err) throw err
     console.log('Webdis installed in good manner')
   })
@@ -22,7 +28,8 @@ const runMake = () => {
 
 const renameDirectory = () => {
   console.log('Renaming directory')
-  cp.execFile('mv', ['webdis-0.1.3', 'webdis'], options, (err) => {
+  cp.execFile('mv', ['webdis-0.1.3', 'webdis'], options, (err, stdout, stderr) => {
+    logOutput(stdout, stderr)
     if (err) throw err
     runMake()
   })
@@ -31,7 +38,8 @@ const renameDirectory = () => {
 
 stream.on('close', () => {
   // Extract it.
-  cp.execFile('tar', ['jxf', fileName], options, function (err) {
+  cp.execFile('tar', ['xvf', fileName], options, function (err, stdout, stderr) {
+    logOutput(stdout, stderr)
     if (err) throw err
     renameDirectory()
   })
