@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "install": "wget https://github.com/nicolasff/webdis/archive/0.1.3.tar.gz && tar -xvzf 0.1.3.tar.gz && mv webdis-0.1.3 webdis && pushd webdis && make clean all && popd  && rm 0.1.3.tar.gz",
+    "install": "node install.js",
     "commit": "git-cz",
     "test": "npm run lint && mocha",
     "lint": "standard",
@@ -36,5 +36,8 @@
     "commitizen": {
       "path": "./node_modules/cz-conventional-changelog"
     }
+  },
+  "dependencies": {
+    "request": "^2.83.0"
   }
 }
