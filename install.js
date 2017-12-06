@@ -3,7 +3,6 @@ const request = require('request')
 const fs = require('fs')
 const cp = require('child_process')
 const path = require('path')
-const os = require('os')
 
 // Download webdis and extract it.
 let fileName = path.join(__dirname, 'webdis.tar.gz')
@@ -34,7 +33,6 @@ const renameDirectory = () => {
     runMake()
   })
 }
-
 
 stream.on('close', () => {
   // Extract it.
