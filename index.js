@@ -31,9 +31,9 @@ const getDefaultConfig = () => {
 
 const start = (config = {}) => {
   let webdisJson = Object.assign(getDefaultConfig(), config)
-    // @todo: Make more random?
+  // @todo: Make more random?
   let configPath = path.join(os.tmpdir(), 'webdis.json.' + Math.random())
-    // Write this config to tmp directory.
+  // Write this config to tmp directory.
   fs.writeFile(configPath, JSON.stringify(webdisJson), (err) => {
     if (err) throw err
     const webdis = spawn(path.join(__dirname, 'webdis', 'webdis'), [configPath])
