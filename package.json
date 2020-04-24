@@ -24,7 +24,7 @@
   "homepage": "https://github.com/violinist-dev/webdis-wrapper#readme",
   "devDependencies": {
     "commitizen": "^4.0.3",
-    "coveralls": "^3.0.0",
+    "coveralls": "^3.1.0",
     "cz-conventional-changelog": "^3.0.0",
     "istanbul": "^0.4.5",
     "mocha": "^6.0.0",
